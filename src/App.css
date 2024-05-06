@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.kontainer {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+
+.product {
+    position: relative;
+    overflow: hidden;
+}
+
+.poduct__cart {
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    right: 0;
+    position: absolute;
+    background: #1f3d4738;
+    backdrop-filter: blur(8px);
+    transition: 0.5s;
+}
+
+.product:hover .poduct__cart {
+    top: 0;
+}
+
+
+.navbar {
+    position: sticky;
+    top: 100px;
+}
