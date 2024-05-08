@@ -41,7 +41,7 @@ const Cart = () => {
         </div>)
     return (
 
-        <div className='pt-[120px]    '>
+        <div>
             {
                 checkout && <Checkout checkout={carts} setCheckout={setCheckout} />
             }
