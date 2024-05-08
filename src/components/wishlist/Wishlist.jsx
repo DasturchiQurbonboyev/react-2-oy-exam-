@@ -5,13 +5,13 @@ import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleWishes } from '../../context/wishlistSlice';
 import { addToCart } from '../../context/cartSlice';
+import Empty from '../empty/Empty';
 
 const Wishlist = () => {
 
     const dispatch = useDispatch()
 
     const wishes = useSelector(state => state.wishlist.value)
-    console.log(wishes);
 
 
 
@@ -67,15 +67,21 @@ const Wishlist = () => {
         </div>
     ))
 
-
-    return (
-        <div className='kontainer '>
-            <h2 className='text-center  text-[#22262A] text-[35px] font-[600]   '>Wishlist</h2>
-            <div className='flex flex-wrap'>
-                {WishlistProducts}
+    if (wishes.length > 0) {
+        return (
+            <div className='kontainer '>
+                <h2 className='text-center  text-[#22262A] text-[35px] font-[600]   '>Wishlist</h2>
+                <div className='flex flex-wrap'>
+                    {WishlistProducts}
+                </div>
             </div>
-        </div>
+        )
+    }
+    return (
+        <Empty />
     )
+
+
 }
 
 export default Wishlist

@@ -5,6 +5,7 @@ import { incCart, decCart, remuverFromCart, clearCart } from '../../context/cart
 import { IoMdClose } from 'react-icons/io'
 import Edit from '../edit/Edit'
 import Checkout from '../checkout/Checkout'
+import Empty from '../empty/Empty'
 
 const Cart = () => {
 
@@ -39,63 +40,72 @@ const Cart = () => {
             </div>
             <p className='text-end'>$ {el.price * el.quantity} </p>
         </div>)
-    return (
-
-        <div>
-            {
-                checkout && <Checkout checkout={carts} setCheckout={setCheckout} />
-            }
-            <div className='kontainer grid gap-10'>
-                <div className='text-end flex justify-end'>
-                    <button onClick={() => dispatch(clearCart())} className=' flex items-center gap-3'><FaRegTrashAlt className='size-7' /> Clear All </button>
-                </div>
-                <div className='px-[40px] py-[24px] shadow-md grid grid-cols-4   items-center    '>
-                    <p>Product</p>
-                    <p>Price</p>
-                    <p>Quantity</p>
-                    <p className='text-end'>Subtotal</p>
-                </div>
-
-                {items}
 
 
+    if (carts.length > 0) {
+        return (
 
-
-
-                <div className='flex justify-between'>
-                    <button className='px-12 py-4 border rounded-md       ' >Return To Shop</button>
-                    <button className='px-12 py-4 border rounded-md       ' >Update Cart</button>
-                </div>
-                <div className='flex justify-between mt-20 '>
-                    <div className='flex gap-4 items-start'>
-                        <input className='border w-[300px] rounded-md px-[24px] py-4 outline-none ' placeholder="Coupon Code" type="text" name="" id="" />
-                        <button className='px-12 py-4 border rounded-md  text-white bg-[#33A0FF]      ' >Apply Coupon</button>
-                    </div>
-                    <div className='border border-[#000] rounded-md px-6 py-8 w-[470px]   '>
-                        <h5>Cart Total</h5>
-                        <div className='flex justify-between items-center py-4 border-b-2'>
-                            <p>Subtotal:</p>
-                            <p>{carts.length}</p>
-                        </div>
-                        <div className='flex justify-between items-center py-4 border-b-2'>
-                            <p>Shipping:</p>
-                            <p>Free</p>
-                        </div>
-                        <div className='flex justify-between items-center py-4'>
-                            <p>Total:</p>
-                            <p>$ {sum}</p>
-                        </div>
-                        <div className='text-center'>
-                            <button onClick={() => setCheckout(carts)} className='px-12 py-4 border rounded-md  text-white bg-[#33A0FF]      ' >Procees to checkout</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div>
+                {
+                    checkout && <Checkout checkout={carts} setCheckout={setCheckout} />
+                }
+                <div className='kontainer grid gap-10'>
+                    <div className='text-end flex justify-end'>
+                        <button onClick={() => dispatch(clearCart())} className=' flex items-center gap-3'><FaRegTrashAlt className='size-7' /> Clear All </button>
+                    </div>
+                    <div className='px-[40px] py-[24px] shadow-md grid grid-cols-4   items-center    '>
+                        <p>Product</p>
+                        <p>Price</p>
+                        <p>Quantity</p>
+                        <p className='text-end'>Subtotal</p>
+                    </div>
 
+                    {items}
+
+
+
+
+
+                    <div className='flex justify-between'>
+                        <button className='px-12 py-4 border rounded-md       ' >Return To Shop</button>
+                        <button className='px-12 py-4 border rounded-md       ' >Update Cart</button>
+                    </div>
+                    <div className='flex justify-between mt-20 '>
+                        <div className='flex gap-4 items-start'>
+                            <input className='border w-[300px] rounded-md px-[24px] py-4 outline-none ' placeholder="Coupon Code" type="text" name="" id="" />
+                            <button className='px-12 py-4 border rounded-md  text-white bg-[#33A0FF]      ' >Apply Coupon</button>
+                        </div>
+                        <div className='border border-[#000] rounded-md px-6 py-8 w-[470px]   '>
+                            <h5>Cart Total</h5>
+                            <div className='flex justify-between items-center py-4 border-b-2'>
+                                <p>Subtotal:</p>
+                                <p>{carts.length}</p>
+                            </div>
+                            <div className='flex justify-between items-center py-4 border-b-2'>
+                                <p>Shipping:</p>
+                                <p>Free</p>
+                            </div>
+                            <div className='flex justify-between items-center py-4'>
+                                <p>Total:</p>
+                                <p>$ {sum}</p>
+                            </div>
+                            <div className='text-center'>
+                                <button onClick={() => setCheckout(carts)} className='px-12 py-4 border rounded-md  text-white bg-[#33A0FF]      ' >Procees to checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+
+                </div>
             </div>
-        </div>
+        )
+    }
+
+    return (
+        <Empty />
     )
+
 }
 
 export default Cart

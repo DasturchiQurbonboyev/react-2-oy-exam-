@@ -8,6 +8,7 @@ import { toggleWishes } from '../../context/wishlistSlice'
 import { FcLike } from 'react-icons/fc'
 import { addToCart } from '../../context/cartSlice'
 import { toggleSingle } from '../../context/singleSlice'
+import Loading from '../loading/Loading'
 
 
 const category = [
@@ -28,12 +29,18 @@ const Products = () => {
     const wishes = useSelector(state => state.wishlist.value)
     const dispatch = useDispatch()
 
-
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState([])
+    const [count, setCount] = useState(4)
+
+
+
     useEffect(() => {
-        axios.get("/products")
+        axios.get(`/products?limit=${count}`)
             .then(res => setData(res.data.products))
-    }, [])
+            .catch(err => console.log("error>>>>>", err))
+            .finally(() => setLoading(false))
+    }, [count])
 
 
     let products = data?.map((el) => (
@@ -89,6 +96,12 @@ const Products = () => {
             </div>
         </div>
     ))
+
+
+    if (loading) {
+        return <Loading />
+    }
+
     return (
         <div className='kontainer'>
             <div>
@@ -97,8 +110,11 @@ const Products = () => {
                     {categoryProduct}
                 </ul>
             </div>
-            <div className='flex flex-wrap'>
+            <div className='flex flex-wrap justify-center'>
                 {products}
+            </div>
+            <div className='flex justify-center items-center mb-10'>
+                <button className='bg-[#37a9f5] text-white px-[15px] py-[10px] rounded-md    ' onClick={() => setCount(p => p + 4)}>See More</button>
             </div>
         </div>
     )
