@@ -12,6 +12,7 @@ import Wishlist from './components/wishlist/Wishlist'
 import SingleProduct from './page/single/SingleProduct'
 import LogIn from './page/login/LogIn'
 import Admin from './page/admin/Admin'
+import Auth from './components/auth/Auth'
 
 function App() {
 
@@ -24,9 +25,10 @@ function App() {
         <Route path='/contact' element={<ContacUs />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/wishlist' element={<Wishlist />} />
-        <Route path='/login' element={<LogIn />} >
-          <Route path='admin' element={<Admin />} />
-        </Route>
+        <Route path='/login' element={<LogIn />} />
+        <Route path='/' element={<Auth />} >
+          <Route path='/admin' element={<Admin />} />
+        </Route >
       </Routes>
 
 
