@@ -9,4 +9,4 @@ export const store = configureStore({
         single: singleSlice,
         cart: cartSlice
     },
-})
+}) 

@@ -26,14 +26,14 @@ const Single = () => {
                 <div className=''>
                     <div className='flex gap-10  '>
                         <div>
-                            <div className='max-w-[400px] mb-[80px]'>
-                                <img className='w-full' src={single.image} alt="" />
+                            <div className='max-w-[400px]   h-[400px] mb-[80px]'>
+                                <img className='w-full h-full object-contain' src={single.thumbnail} alt="" />
                             </div>
-                            <div className='flex gap-4 justify-between '>
-                                <img className='w-full max-w-[85px]  ' src={single.image} alt="" />
-                                <img className='w-full max-w-[85px]  ' src={single.image} alt="" />
-                                <img className='w-full max-w-[85px]  ' src={single.image} alt="" />
-                                <img className='w-full max-w-[85px]  ' src={single.image} alt="" />
+                            <div className='flex h-[80px] gap-4 justify-between '>
+                                <img className='w-[85px] object-contain    ' src={single.images[0]} alt="" />
+                                <img className='w-[85px] object-contain   ' src={single.images[1]} alt="" />
+                                <img className='w-[85px] object-contain   ' src={single.images[2]} alt="" />
+                                <img className='w-[85px] object-contain   ' src={single.images[3]} alt="" />
                             </div>
                         </div>
                         <div className=' flex flex-col gap-[15px]'>
@@ -86,7 +86,6 @@ const Single = () => {
                                 </div>
                                 <div className='flex items-center gap-[15px]'>
                                     <button className='flex items-center gap-2 bg-[#cfe5fa] px-[15px] py-[12px] text-[#33A0FF]  rounded-md '><TiShoppingCart /><span>Add To Cart</span></button>
-                                    {/* <button className='  '><FaRegHeart /></button> */}
                                     <button onClick={() => dispatch(toggleWishes(single))} className='bg-[#cfe5fa] px-[15px] py-[15px] text-[#33A0FF]  rounded-md'>
                                         {
                                             wishes.some(w => w.id == single.id) ?
@@ -125,7 +124,7 @@ const Single = () => {
                 <div className="  flex  relative  flex-col  rounded-lg border border-gray-100 bg-white shadow-md">
                     <div className='product w-[300px] '>
                         <div className=' flex justify-center items-center p-[15px] '>
-                            <img className="object-cover h-[250px]" src={single.image} alt="product image" />
+                            <img className="object-cover h-[250px]" src={single.thumbnail} alt="product image" />
                             <span className="absolute top-0 left-0 m-2 rounded-full bg-[#FF4858] px-2 text-center text-sm font-medium text-white">HOT</span>
                         </div>
                     </div>
@@ -156,10 +155,6 @@ const Single = () => {
                     </div>
                 </div>
             </div>
-
-            <Products />
-
-
         </div>
     )
 }

@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaChevronDown, FaChevronUp, FaRegTrashAlt, FaTrashAlt } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { incCart, decCart, remuverFromCart, clearCart } from '../../context/cartSlice'
 import { IoMdClose } from 'react-icons/io'
-import { Link } from 'react-router-dom'
+import Edit from '../edit/Edit'
+import Checkout from '../checkout/Checkout'
 
 const Cart = () => {
+
+    const [checkout, setCheckout] = useState(null)
     const carts = useSelector(state => state.cart.value);
-    console.log(carts);
     const dispatch = useDispatch();
     let sum = carts.reduce((acc, el) => {
-        console.log(el);
         return acc + el.quantity * el.price
     }, 0)
-    console.log(sum);
 
     useEffect(() => {
         scrollTo(0, 0)
@@ -23,7 +23,7 @@ const Cart = () => {
     let items = carts?.map((el) =>
         <div key={el.id} className='px-[40px] py-[24px] shadow-md grid grid-cols-4   items-center    '>
             <div className='flex items-center gap-5 relative'>
-                <img src={el.image} className='w-[100px]' alt="" />
+                <img src={el.thumbnail} className='w-[100px]' alt="" />
                 <p>{el.title}</p>
                 <div onClick={() => dispatch(remuverFromCart(el))} className='absolute cursor-pointer bg-red-600 -top-[7px] left-[85px] h-6 w-6 flex justify-center items-center rounded-[50%]  '><IoMdClose className='text-white size-[20px]' /></div>
             </div>
@@ -42,6 +42,9 @@ const Cart = () => {
     return (
 
         <div className='pt-[120px]    '>
+            {
+                checkout && <Checkout checkout={carts} setCheckout={setCheckout} />
+            }
             <div className='kontainer grid gap-10'>
                 <div className='text-end flex justify-end'>
                     <button onClick={() => dispatch(clearCart())} className=' flex items-center gap-3'><FaRegTrashAlt className='size-7' /> Clear All </button>
@@ -53,9 +56,11 @@ const Cart = () => {
                     <p className='text-end'>Subtotal</p>
                 </div>
 
-                {
-                    items
-                }
+                {items}
+
+
+
+
 
                 <div className='flex justify-between'>
                     <button className='px-12 py-4 border rounded-md       ' >Return To Shop</button>
@@ -81,9 +86,7 @@ const Cart = () => {
                             <p>$ {sum}</p>
                         </div>
                         <div className='text-center'>
-                            <Link className='text-[16px]' to={"/checkOut"}>
-                                <button className='px-12 py-4 border rounded-md  text-white bg-[#33A0FF]      ' >Procees to checkout</button>
-                            </Link>
+                            <button onClick={() => setCheckout(carts)} className='px-12 py-4 border rounded-md  text-white bg-[#33A0FF]      ' >Procees to checkout</button>
                         </div>
                     </div>
                 </div>

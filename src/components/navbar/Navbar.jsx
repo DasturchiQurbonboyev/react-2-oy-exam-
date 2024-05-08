@@ -1,6 +1,6 @@
 import React from 'react'
 import { CgShoppingCart } from 'react-icons/cg'
-import { FaSearch } from 'react-icons/fa'
+import { FaRegHeart, FaSearch } from 'react-icons/fa'
 import { IoPersonOutline } from 'react-icons/io5'
 import logo from '../../assets/images/navbar/logo.png'
 import { Link } from 'react-router-dom'
@@ -36,7 +36,11 @@ const Navbar = () => {
                 <div className='flex gap-5 items-center'>
                     <div className='flex justify-between items-center gap-2'>
                         <IoPersonOutline className='size-[20px]' />
-                        <p>My profile</p>
+                    </div>
+                    <div>
+                        <Link to={"/wishlist"}>
+                            <FaRegHeart />
+                        </Link>
                     </div>
                     <div className='cursor-pointer'>
                         <Link to={"/cart"}>
@@ -78,8 +82,8 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to={"/wishlist"}>
-                                WISHLIST
+                            <Link to={"/login"}>
+                                LOG IN
                             </Link>
                         </li>
                     </ul>

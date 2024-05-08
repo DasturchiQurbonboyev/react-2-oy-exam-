@@ -38,3 +38,12 @@
     position: sticky;
     top: 100px;
 }
+
+
+.checkout {
+    position: fixed;
+    background-color: #e2d3d3;
+    filter: blur(1.5rem);
+    z-index: 5;
+
+}

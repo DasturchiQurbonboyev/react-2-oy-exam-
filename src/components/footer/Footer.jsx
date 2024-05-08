@@ -7,8 +7,6 @@ const footer = () => {
         <div className=' bg-[#BCDDFE]'>
             <footer className="kontainer mt-[100px]">
                 <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-
-
                     <div className="mt-16   flex justify-between">
                         <div className='flex max-w-[220px] flex-col gap-8' >
                             <div className="flex items-center gap-2">

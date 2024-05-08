@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../assets/api/index'
 import React, { useEffect, useState } from 'react'
 import { FaRegHeart } from 'react-icons/fa'
 import { MdOutlineShoppingCart } from 'react-icons/md'
@@ -31,8 +31,8 @@ const Products = () => {
 
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get("https://6634b1ce9bb0df2359a26950.mockapi.io/laylo/users")
-            .then(res => setData(res.data))
+        axios.get("/products")
+            .then(res => setData(res.data.products))
     }, [])
 
 
@@ -40,7 +40,7 @@ const Products = () => {
         <div key={el.id} className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
             <div className='product '>
                 <div className=' flex justify-center items-center p-[15px] '>
-                    <img className="object-cover h-[250px]" src={el.image} alt="product image" />
+                    <img className="object-cover h-[250px]" src={el.thumbnail} alt="product image" />
                     <span className="absolute top-0 left-0 m-2 rounded-full bg-[#FF4858] px-2 text-center text-sm font-medium text-white">HOT</span>
                 </div>
                 <div className='poduct__cart flex justify-center items-center gap-5' >
