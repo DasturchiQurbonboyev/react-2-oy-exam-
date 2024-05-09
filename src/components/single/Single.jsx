@@ -6,11 +6,17 @@ import Products from '../products/Products'
 import { useDispatch, useSelector } from 'react-redux'
 import { FcLike } from 'react-icons/fc'
 import { toggleWishes } from '../../context/wishlistSlice'
+import { addToCart } from '../../context/cartSlice'
 
 
 const Single = () => {
-    const wishes = useSelector(state => state.wishlist.value)
 
+
+
+
+
+    const wishes = useSelector(state => state.wishlist.value)
+    const carts = useSelector(state => state.cart.value);
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -18,7 +24,6 @@ const Single = () => {
     }, [])
 
     const single = useSelector(state => state.single.value)[0]
-
 
     return (
         <div className='kontainer '>
@@ -79,13 +84,16 @@ const Single = () => {
                                 </select>
                             </div>
                             <div className='flex justify-between items-center '>
-                                <div className='flex'>
+                                <div className={` ${carts.includes(single) ? "flex" : "hidden"}`}>
                                     <div className='p-3 cursor-pointer bg-[#F6F7F8] rounded-l-md     '>-</div>
                                     <p className='p-3 bg-[#F6F7F8]    '>1</p>
                                     <div className='p-3 cursor-pointer bg-[#F6F7F8] rounded-r-md     '>+</div>
                                 </div>
                                 <div className='flex items-center gap-[15px]'>
-                                    <button className='flex items-center gap-2 bg-[#cfe5fa] px-[15px] py-[12px] text-[#33A0FF]  rounded-md '><TiShoppingCart /><span>Add To Cart</span></button>
+                                    <button onClick={() => {
+                                        dispatch(addToCart(single))
+                                        // toast.success("Maxsulot Cartga qo'shildi")
+                                    }} className='flex items-center gap-2 bg-[#cfe5fa] px-[15px] py-[12px] text-[#33A0FF]  rounded-md '><TiShoppingCart /><span>Add To Cart</span></button>
                                     <button onClick={() => dispatch(toggleWishes(single))} className='bg-[#cfe5fa] px-[15px] py-[15px] text-[#33A0FF]  rounded-md'>
                                         {
                                             wishes.some(w => w.id == single.id) ?
@@ -155,8 +163,11 @@ const Single = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
 export default Single
+
+
+

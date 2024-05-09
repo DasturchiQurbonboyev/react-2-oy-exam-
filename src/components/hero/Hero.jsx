@@ -7,7 +7,7 @@ const Hero = () => {
             <div className='pt-5 z-0'>
                 <img src={hero} alt="" />
             </div>
-            <div className='relative -mt-[100px] flex gap-2 justify-center'>
+            <div className='relative mt-4 min-[800px]:-mt-[100px] max-[800px]:flex-wrap flex gap-2 justify-center'>
                 <div className='  w-[400px] bg-[#e0dddd] rounded-md p-[30px]'>
                     <h4 className='text-[#223263] text-[20px] font-[700] leading-[30px] max-w-[200px]    '>FS - QUILTED MAXI CROSS BAG</h4>
                     <div className='h-[200px] flex justify-center'>

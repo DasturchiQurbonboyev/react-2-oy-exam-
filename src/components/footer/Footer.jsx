@@ -7,7 +7,7 @@ const footer = () => {
         <div className=' bg-[#BCDDFE]'>
             <footer className="kontainer mt-[100px]">
                 <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-                    <div className="mt-16   flex justify-between">
+                    <div className="mt-16 max-[800px]:flex-wrap    flex justify-between">
                         <div className='flex max-w-[220px] flex-col gap-8' >
                             <div className="flex items-center gap-2">
                                 <img src={logo} alt="" />
@@ -17,7 +17,7 @@ const footer = () => {
 
                         </div>
 
-                        <div className=" max-w-[220px] text-center sm:text-left flex flex-col gap-8">
+                        <div className=" max-w-[220px] min-[800px]:text-center sm:text-left flex flex-col gap-8">
                             <p className="text-lg font-medium text-gray-900">Follow Us</p>
                             <p>Since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
                             <div className='flex gap-6'>
@@ -33,7 +33,7 @@ const footer = () => {
                         </div>
                     </div>
 
-                    <div className='flex justify-between mt-10'>
+                    <div className='max-[800px]:flex-wrap flex justify-between mt-10'>
                         <div className=" max-w-[220px] flex flex-col gap-8">
                             <p className="text-lg font-medium text-gray-900">Infomation</p>
                             <div>

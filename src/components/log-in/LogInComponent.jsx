@@ -58,7 +58,7 @@ const LogInComponent = () => {
 
 
     return (
-        <form onSubmit={handleSubmit} className='mx-auto w-[500px] flex flex-col gap-7'>
+        <form onSubmit={handleSubmit} className='mx-auto  max-[600px]:px-[20px]  min-[600px]:w-[500px] flex flex-col gap-7'>
             <div>
                 <label htmlFor="">Username</label>
                 <br />
