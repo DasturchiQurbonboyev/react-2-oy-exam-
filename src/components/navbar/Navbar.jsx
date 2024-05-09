@@ -22,7 +22,7 @@ const Navbar = () => {
 
     if (adminLocation === "/admin") {
         return (
-            <div className=' shadow-md   ' >
+            <div className=' shadow-md     ' >
                 <div className='kontainer h-[50px]  border-b-2 flex items-center justify-between  '>
                     <div className='flex gap-3'>
                         <select className=' outline-none ' name="" id="">
@@ -111,7 +111,7 @@ const Navbar = () => {
 
 
     return (
-        <div className=' shadow-md   ' >
+        <div className=' shadow-md  ' >
             <div className='kontainer h-[50px]  border-b-2 flex items-center justify-between  '>
                 <div className='flex gap-3'>
                     <select className=' outline-none ' name="" id="">
@@ -168,7 +168,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ position: "sticky", marginBottom: 50 }} className='sticky top-0 bg-white'>
+            <div style={{ position: "sticky", marginBottom: 50 }} className=' sticky top-0 bg-white'>
                 <div className='kontainer flex   h-[70px]    items-center justify-between '>
                     <div className='min-[500px]:w-[30%]'>
                         <Link to={"/"}>

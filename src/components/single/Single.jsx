@@ -6,7 +6,7 @@ import Products from '../products/Products'
 import { useDispatch, useSelector } from 'react-redux'
 import { FcLike } from 'react-icons/fc'
 import { toggleWishes } from '../../context/wishlistSlice'
-import { addToCart } from '../../context/cartSlice'
+import { addToCart, decCart, incCart } from '../../context/cartSlice'
 
 
 const Single = () => {
@@ -24,6 +24,19 @@ const Single = () => {
     }, [])
 
     const single = useSelector(state => state.single.value)[0]
+
+
+    let kart = carts.map((el) => {
+        return el.id === single.id
+    })
+
+    let kartInx
+    for (let i = 0; i < kart.length; i++) {
+        kart[i] ? kartInx = i : ""
+    }
+
+
+
 
     return (
         <div className='kontainer '>
@@ -84,10 +97,10 @@ const Single = () => {
                                 </select>
                             </div>
                             <div className='flex justify-between items-center '>
-                                <div className={` ${carts.includes(single) ? "flex" : "hidden"}`}>
-                                    <div className='p-3 cursor-pointer bg-[#F6F7F8] rounded-l-md     '>-</div>
-                                    <p className='p-3 bg-[#F6F7F8]    '>1</p>
-                                    <div className='p-3 cursor-pointer bg-[#F6F7F8] rounded-r-md     '>+</div>
+                                <div className={` ${kart.includes(true) ? "flex" : "hidden"}`}>
+                                    <button disabled={carts[kartInx].quantity <= 1} onClick={() => dispatch(decCart(carts[kartInx]))} className='p-3 cursor-pointer bg-[#F6F7F8] rounded-l-md     '>-</button>
+                                    <p className='p-3 bg-[#F6F7F8]    '>{carts[kartInx].quantity}</p>
+                                    <div onClick={() => dispatch(incCart(carts[kartInx]))} className='p-3 cursor-pointer bg-[#F6F7F8] rounded-r-md     '>+</div>
                                 </div>
                                 <div className='flex items-center gap-[15px]'>
                                     <button onClick={() => {
