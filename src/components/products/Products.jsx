@@ -23,6 +23,10 @@ const categoryProduct = category?.map((el, inx) => (
     </li>
 ))
 
+const categoryProduct1 = category?.map((el, inx) => (
+    <option key={inx} value="">{el}</option>
+))
+
 const Products = () => {
 
 
@@ -106,9 +110,13 @@ const Products = () => {
         <div className='kontainer'>
             <div>
                 <h2 className='text-center text-[35px] font-[600] text-[#22262A] mt-[65px]    '>BEST SELLER</h2>
-                <ul className='flex justify-center gap-[30px] mt-[26px]'>
-                    {categoryProduct}
-                </ul>
+
+
+                <div className='min-[460px]:hidden'>
+                    <ul className=' flex  justify-center gap-[20px] mt-[26px]'>
+                        {categoryProduct}
+                    </ul>
+                </div>
             </div>
             <div className='flex flex-wrap justify-center'>
                 {products}

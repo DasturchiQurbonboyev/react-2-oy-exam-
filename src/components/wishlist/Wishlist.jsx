@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleWishes } from '../../context/wishlistSlice';
 import { addToCart } from '../../context/cartSlice';
 import Empty from '../empty/Empty';
+import { toggleSingle } from '../../context/singleSlice';
 
 const Wishlist = () => {
 

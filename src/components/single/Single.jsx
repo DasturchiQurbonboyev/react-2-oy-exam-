@@ -27,9 +27,9 @@ const Single = () => {
 
     return (
         <div className='kontainer '>
-            <div className='flex items-start gap-8 '>
+            <div className='   lg:flex  items-start gap-8 '>
                 <div className=''>
-                    <div className='flex gap-10  '>
+                    <div className='  xl:flex gap-10  '>
                         <div>
                             <div className='max-w-[400px]   h-[400px] mb-[80px]'>
                                 <img className='w-full h-full object-contain' src={single.thumbnail} alt="" />
@@ -129,7 +129,7 @@ const Single = () => {
                     </div>
                 </div>
                 {/* left */}
-                <div className="  flex  relative  flex-col  rounded-lg border border-gray-100 bg-white shadow-md">
+                <div className="  flex w-[300px]  relative  flex-col  rounded-lg border border-gray-100 bg-white shadow-md">
                     <div className='product w-[300px] '>
                         <div className=' flex justify-center items-center p-[15px] '>
                             <img className="object-cover h-[250px]" src={single.thumbnail} alt="product image" />
