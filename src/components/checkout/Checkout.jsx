@@ -58,7 +58,7 @@ const Checkout = ({ checkout, setCheckout }) => {
 
     return (
         <div className=' flex justify-center items-center filter  h-[100vh] w-[100%] checkout top-0'>
-            <div className=' fixed z-10 bg-white top-[10%] w-[1000px] p-[50px] rounded-xl '>
+            <div className=' fixed z-10 bg-white top-[10%] lg:w-[1000px] p-[50px] rounded-xl '>
                 <div className='flex items-center justify-start'>
                     <IoMdArrowBack onClick={() => setCheckout(null)} className='text-[#40BFFF] cursor-pointer size-8  ' />
                 </div>
@@ -66,7 +66,7 @@ const Checkout = ({ checkout, setCheckout }) => {
                     <IoClose onClick={() => setCheckout(null)} className='text-[#40BFFF]  cursor-pointer    size-14 ' />
                 </div>
                 <h2 className='text-[#40BFFF] mb-[50px] text-[32px] font-[600] text-center   '>Make Payment</h2>
-                <div className='grid grid-cols-2 gap-5'>
+                <div className='grid md:grid-cols-2 gap-5'>
                     <div className='flex flex-col gap-3'>
                         <div className='flex flex-col gap-4'>
                             <input value={firstName} onChange={e => setFirstName(e.target.value)} required className='outline-none  p-[15px] rounded-md  bg-[#DFDEDE]    ' type="text" placeholder='First Name' />
