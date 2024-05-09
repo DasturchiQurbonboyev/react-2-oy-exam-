@@ -63,8 +63,8 @@ const Single = () => {
                             </div>
                             <hr />
                             <div className='flex items-end gap-4'>
-                                <h3 className='text-[#40BFFF] text-[20px] font-[700]      '>$ {single.price}</h3>
-                                <del className='text-[#40BFFF] text-[14px]     '>$ {single.price + 10}</del>
+                                <h3 className='text-[#40BFFF] text-[20px] font-[700]      '>$ {carts[kartInx].quantity * single.price}</h3>
+                                <del className='text-[#40BFFF] text-[14px]     '>$ {carts[kartInx].quantity * single.price + 10}</del>
                                 <p className='text-[#FB7181]'>24% Off</p>
                             </div>
                             <div className='grid grid-cols-2 border-b-2 pb-2    '>
