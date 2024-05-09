@@ -35,6 +35,7 @@ const Single = () => {
         kart[i] ? kartInx = i : ""
     }
 
+    console.log(kartInx);
 
 
 
@@ -63,8 +64,8 @@ const Single = () => {
                             </div>
                             <hr />
                             <div className='flex items-end gap-4'>
-                                <h3 className='text-[#40BFFF] text-[20px] font-[700]      '>$ {carts[kartInx].quantity * single.price}</h3>
-                                <del className='text-[#40BFFF] text-[14px]     '>$ {carts[kartInx].quantity * single.price + 10}</del>
+                                <h3 className='text-[#40BFFF] text-[20px] font-[700]      '>$ {kart.includes(true) ? single.price * carts[kartInx].quantity : single.price}</h3>
+                                <del className='text-[#40BFFF] text-[14px]     '>$ {single.price + 10}</del>
                                 <p className='text-[#FB7181]'>24% Off</p>
                             </div>
                             <div className='grid grid-cols-2 border-b-2 pb-2    '>
@@ -98,8 +99,8 @@ const Single = () => {
                             </div>
                             <div className='flex justify-between items-center '>
                                 <div className={` ${kart.includes(true) ? "flex" : "hidden"}`}>
-                                    <button disabled={carts[kartInx].quantity <= 1} onClick={() => dispatch(decCart(carts[kartInx]))} className='p-3 cursor-pointer bg-[#F6F7F8] rounded-l-md     '>-</button>
-                                    <p className='p-3 bg-[#F6F7F8]    '>{carts[kartInx].quantity}</p>
+                                    <button onClick={() => dispatch(decCart(carts[kartInx]))} className='p-3 cursor-pointer bg-[#F6F7F8] rounded-l-md     '>-</button>
+                                    <p className='p-3 bg-[#F6F7F8]    '>{kartInx ? carts[kartInx].quantity : 1}</p>
                                     <div onClick={() => dispatch(incCart(carts[kartInx]))} className='p-3 cursor-pointer bg-[#F6F7F8] rounded-r-md     '>+</div>
                                 </div>
                                 <div className='flex items-center gap-[15px]'>
