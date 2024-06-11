@@ -23,7 +23,7 @@ const Cart = () => {
 
     let items = carts?.map((el) =>
         <div key={el.id}>
-            <div className=' hidden min-[850px]:block   px-[40px] py-[24px] shadow-md  min-[850px]:grid grid-cols-4   items-center    '>
+            <div className=' hidden    px-[40px] py-[24px] shadow-md  min-[850px]:grid grid-cols-4   items-center    '>
                 <div className='min-[1100px]:flex items-center gap-5 relative'>
                     <img src={el.thumbnail} className='w-[100px]' alt="" />
                     <p>{el.title}</p>
